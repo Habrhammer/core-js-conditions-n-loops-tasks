@@ -21,8 +21,8 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  return number >= 0;
 }
 
 /**
@@ -38,8 +38,15 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  let maxValue = a;
+  if (b > a) {
+    maxValue = b;
+  }
+  if (c > maxValue) {
+    maxValue = c;
+  }
+  return maxValue;
 }
 
 /**
@@ -100,8 +107,17 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let result = '';
+  const ones = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
+  const tens = ['', 'X', 'XX', 'XXX', 'XL', 'L'];
+
+  if (num >= 10) {
+    result += tens[+`${num}`[0]];
+  }
+  result += ones[+`${num}`[`${num}`.length - 1]];
+
+  return result;
 }
 
 /**
@@ -135,8 +151,12 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let reverseStr = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    reverseStr += str[i];
+  }
+  return reverseStr === str;
 }
 
 /**
@@ -153,8 +173,14 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  let index = -1;
+  for (let i = 0; i <= str.length; i += 1) {
+    if (str[i] === letter) {
+      index = i;
+    }
+  }
+  return index;
 }
 
 /**
@@ -172,8 +198,14 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  const strNum = `${num}`;
+  for (let i = 0; i <= strNum.length; i += 1) {
+    if (strNum[i] === `${digit}`) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
